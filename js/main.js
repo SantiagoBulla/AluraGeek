@@ -1,12 +1,17 @@
-import { serviciosAPI } from "./servicios.js";
-import { validaciones } from "./validaciones.js";
+import { serviciosAPI } from "./services.js";
+import { validations } from "./validations.js";
 
-// Renderizar productos
-const containerProductos = document.querySelector('.products__section__container');
-const errorProductos = document.querySelector('.products__section__empty__message');
+// referencing HTML elements
+const containerProducts = document.querySelector('.products__section__container');
+const errorProducts = document.querySelector('.products__section__empty__message');
 const inputs = document.querySelectorAll('input[type=text]');
-serviciosAPI.listarProductos(containerProductos, errorProductos);
+const btnSubmit = document.querySelector('.input__submit__btn');
+const btnClean = document.querySelector('.input__clean__btn');
 
+// load products
+serviciosAPI.showProducts(containerProducts, errorProducts);
+
+// removes error messages from input fields 
 inputs.forEach(input => {
     input.addEventListener('keypress', () => {
         const errorElement = input.nextElementSibling;
@@ -18,35 +23,37 @@ inputs.forEach(input => {
     });
 });
 
-function limpiarInputs(e) {
+// Cleans the inputs values
+function cleanInputs(e) {
     e.preventDefault();
     inputs.forEach(input => {
         input.value = ''
     });
 }
 
-// Crear un nuevo producto
-const btnEnviar = document.querySelector('.input__submit__btn');
-const btnLimpiar = document.querySelector('.input__clean__btn');
-btnEnviar.addEventListener('click', async (e) => {
+btnClean.addEventListener('click', (e) => cleanInputs(e));
+
+// Manage the product creation process
+btnSubmit.addEventListener('click', async (e) => {
     e.preventDefault();
     let dataValid = true;
 
+    // Validate each input field
     inputs.forEach(input => {
         const errorElement = input.nextElementSibling;
 
-        if (validaciones.validarCamposVacios(input.value)) {
+        if (validations.validateEmptyFields(input.value)) {
             errorElement.textContent = `¡El campo ${input.name} no puede estar vacio!`;
             errorElement.style.display = 'block';
             dataValid = false;
         } else if (input.getAttribute('class') == 'input__image') {
-            if (!validaciones.urlStartsWithHTTPS(input.value)) {
+            if (!validations.urlStartsWithHTTPS(input.value)) {
                 errorElement.textContent = `¡La URl debe empezar con la secuencia https:// para ser reconocida como una URL valida!`;
                 errorElement.style.display = 'block';
                 dataValid = false;
             }
         } else if (input.getAttribute('class') == 'input__cost') {
-            if (!validaciones.precioNumerico(input.value)) {
+            if (!validations.priceIsNumeric(input.value)) {
                 errorElement.textContent = `¡El precio debe ser un valor númerico superior a cero para ser reconocido como valido!`;
                 errorElement.style.display = 'block';
                 dataValid = false;
@@ -54,21 +61,18 @@ btnEnviar.addEventListener('click', async (e) => {
         }
     })
 
-
+    // if the input fields are valid, the data is sent to the API
     if (dataValid) {
         const productData = {}
-        inputs.forEach(input => {
+        inputs.forEach(input => { // create the object
             productData[input.name] = input.value;
         });
 
         try {
-            const response = await serviciosAPI.crearProducto(productData);
-            alert('¡Producto ingresado con exito!');
+            await serviciosAPI.insertProduct(productData);
         } catch (error) {
-            alert('¡Ha ocurrido un problema al ingresar el producto!');
+            console.log(error);
         }
     }
 
 });
-
-btnLimpiar.addEventListener('click', (e) => limpiarInputs(e));

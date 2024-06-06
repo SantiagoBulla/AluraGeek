@@ -5,6 +5,7 @@
     --black-color: #000000;
     --blue-color: #03318C;
     --white-color: #FFFFFF;
+    --error-color: rgb(218, 72, 53);
 }
 
 * {
@@ -93,7 +94,7 @@
 }
 
 .error__input__message {
-    color: red;
+    color: var(--error-color);
     font-size: 10px;
     padding-left: 15px;
     margin-top: 7px;
@@ -142,6 +143,8 @@
 }
 
 .products__section__empty__message {
+    text-align: center;
+    color: var(--error-color);
     display: none;
 }
 
