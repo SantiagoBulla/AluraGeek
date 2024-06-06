@@ -1,0 +1,52 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "2",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "3",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "4",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "5",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "6",
+      "nombre": "Nombre del producto",
+      "precio": "60.00",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0mJGDnOVGKlqVoWxYPOSydb64VEQp0XG35Q&s"
+    },
+    {
+      "id": "250e",
+      "nombre": "Peluche de gato",
+      "precio": "83.25",
+      "imagen": "https://giftshopkawaii.cl/cdn/shop/files/IMG_8267_1800x.jpg?v=1690314023"
+    },
+    {
+      "id": "06f8",
+      "nombre": "Tostadora de Star Wars",
+      "precio": "150.25",
+      "imagen": "https://inusualdesign.com/wp-content/uploads/2017/12/1bd7_star_wars_toaster.jpg"
+    }
+  ]
+}

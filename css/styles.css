@@ -58,15 +58,22 @@
 }
 
 .create__products__form {
+    max-width: 472px;
     width: 100%;
 }
 
-.inputs__fields {
+.inputs__fields,
+.inputs__field__container {
     width: 100%;
+}
+
+.inputs__field__container p {
+    line-height: 1.8em;
+    display: none;
 }
 
 .inputs__fields input {
-    width: 96%;
+    width: 94%;
     height: 58px;
     border: 3px solid var(--blue-color);
     border-radius: 30px;
@@ -83,6 +90,13 @@
     font-weight: 600;
     padding-left: 2px;
     color: var(--blue-color);
+}
+
+.error__input__message {
+    color: red;
+    font-size: 10px;
+    padding-left: 15px;
+    margin-top: 7px;
 }
 
 
@@ -165,6 +179,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 176px;
 }
 
 .card__container__info p {
